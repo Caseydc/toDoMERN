@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 
 const toDoSchema = new mongoose.Schema({
-  task: String,
-  catagory: String
+  author: String,
+  title: String,
+  date: Date
 })
 
 const ToDo = mongoose.model('todo', toDoSchema);
 
-module.exports = { ToDo };
+module.exports = ToDo;

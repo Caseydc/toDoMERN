@@ -6,6 +6,7 @@ const cors = require('cors');
 const toDoRouter = require('./routes/toDoRoutes.js');
 
 const app = Express();
+const PORT = 4000;
 
 app.use(cors())
   .use(morgan('short'))
@@ -14,12 +15,13 @@ app.use(cors())
 
 async function bootstrap () {
   try {
-    await mongoose.connect('mongodb://localhost:27017/toDoListOmar');
-    app.listen(3000, async () => {
-        console.log('Server is running and connected to db, http://localhost:3000');
+    await mongoose.connect('mongodb://localhost:27017/mydb');
+    app.listen(PORT, async () => {
+        console.log(`Server is riding on a mongoose at, http://localhost:${PORT}`);
     });
   } catch (error) {
     console.error(error)
   }
 }
+
 bootstrap();
